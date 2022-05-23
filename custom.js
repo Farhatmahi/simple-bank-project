@@ -2,51 +2,46 @@ const verifyBtn = document.getElementById("verify-btn");
 const loginArea = document.getElementById("login-area");
 const transactionArea = document.getElementById("transaction-area")
 
-
-
+//it will redirect to the bank page
 verifyBtn.addEventListener("click", () => {
     loginArea.style.display = "none";
     transactionArea.style.display = "block";
 })
 
-//event handler
-
+//deposit button event 
 const depositBtn = document.getElementById("deposit-btn");
-depositBtn.addEventListener("click", () => {
 
-    //took input and changed it to number 
-    const depositNumber = getInputNumber("deposit-amount");
+depositBtn.addEventListener("click", function(){    
+    const depositNumber = inputToNum("deposit-amount");
 
     updateSpanText("current-deposit", depositNumber);
     updateSpanText("current-balance", depositNumber);
 
-    //input field will be empty
-    document.getElementById("deposit-amount").value = ""
-
+    document.getElementById("deposit-amount").value = "";
+    
 })
 
-//withdraw event handler
-
+//withdraw button event
 const withdrawBtn = document.getElementById("withdraw-btn");
-withdrawBtn.addEventListener("click", () => {
-    const withdrawNumber = getInputNumber("withdraw-amount");
+withdrawBtn.addEventListener("click", function(){
+    const withdrawNumber = inputToNum("withdraw-amount")
+
     updateSpanText("current-withdraw", withdrawNumber);
-    updateSpanText("current-balance", -1 * withdrawNumber)
+    updateSpanText("current-balance", -1 * withdrawNumber); //because the amount will be reducted from balance
 
-    document.getElementById("withdraw-amount").value = ""
+    document.getElementById("withdraw-amount").value = "";
+    
 })
-
-
-function getInputNumber(id){
-    const input = document.getElementById(id).value;
-    const inputToNumber = parseFloat(input);
-    return inputToNumber;
-}
-
 
 function updateSpanText(id, depositNumber){
     const current = document.getElementById(id).innerText;
-    const currentNumber = parseFloat(current);
-    const total = depositNumber + currentNumber;
+    const currentNum = parseFloat(current);
+    const total = currentNum + depositNumber;
     document.getElementById(id).innerText = total;
+}
+
+function inputToNum(id){
+    const input = document.getElementById(id).value;
+    const inputToNum = parseFloat(input);
+    return inputToNum;
 }
