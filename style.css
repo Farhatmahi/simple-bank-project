@@ -13,3 +13,47 @@ h1{
     border: 1px solid rgba(128, 128, 128, 0.096);
     border-radius: 10px;
 }
+
+#transaction-area{
+    display: none;
+}
+
+.amount-boxes{
+    padding: 50px 0;
+}
+
+.amount-box1, .amount-box2, .amount-box3{
+    margin: 0 30px;
+    padding: 20px 40px;
+    background: yellow;
+    border-radius: 10px;
+    color: white;
+}
+
+.amount-box1{
+    background-color: #6953CA;
+}
+
+.amount-box2{
+    background: #E79B7E;
+}
+
+.amount-box3{
+    background: #E6A702;
+}
+
+.input-box .card{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.205);
+    padding: 20px;
+    margin: 50px;
+    border-radius: 10px;
+}
+
+.input-box .card .card-footer{
+    background: none;
+    border: none !important;
+}
+
+.input-box .card input{
+    width: 100%;
+}
